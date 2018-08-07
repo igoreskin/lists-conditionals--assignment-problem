@@ -22,10 +22,12 @@ class App extends Component {
     chars.splice(charIndex, 1);
     this.setState({
       inputText: chars.join(''),
+      inputLength: chars.length,
     })
   }
 
   render() {
+
     let charArr = this.state.inputText.split('');
     let chars = (
       <div>
@@ -40,8 +42,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <input type="text" onChange={this.changeHangler} />
-        <ValidationComponent length={this.state.inputLength}/>
+        <div className='center'>
+          <input style={{cursor: 'pointer'}} type="text" onChange={this.changeHangler} value={this.state.inputText}/>
+          <ValidationComponent length={this.state.inputLength}/>
+        </div>
         {chars}
       </div>
     );

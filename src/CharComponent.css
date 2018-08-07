@@ -4,4 +4,6 @@
   text-align: center;
   margin: 16px;
   border: 1px solid black;
+  box-shadow: 0 2px 3px #ccc;
+  background-color: #ADD8E6;
 }
