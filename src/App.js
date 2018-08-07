@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 import './App.css';
+import ValidationComponent from './ValidationComponent';
 
 class App extends Component {
 
   state = {
-    inputLength: 0
+    inputText: '',
+    inputLength: 0,
   }
 
   changeHangler = (event) => {
     this.setState({
-      inputLength: event.target.value.length
+      inputText: event.target.value,
+      inputLength: event.target.value.length,
+    })
+  }
+
+  deleteCharHandler = (charIndex) => {
+    const chars = this.state.inputText.split('');
+    chars.splice(charIndex, 1);
+    this.setState({
+      inputText: chars.join(''),
     })
   }
 
@@ -18,6 +29,8 @@ class App extends Component {
       <div className="App">
 
       <input type="text" onChange={this.changeHangler} />
+
+      <ValidationComponent length={this.state.inputLength}/>
 
       </div>
     );
